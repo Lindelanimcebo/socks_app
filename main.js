@@ -4,6 +4,6 @@ var app = new Vue({
         product : "Socks",
         description : "I am just learning this thing",
         image : "./assets/vmSocks-green-onWhite.jpg",
-        github : "https://github.com/Lindelanimcebo/socks_app"
+        inStock : false
     }
 })

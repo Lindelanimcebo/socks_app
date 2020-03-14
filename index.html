@@ -18,8 +18,8 @@
 
                 <div class="product-info">
                     <h1>{{ product }}</h1>
-                    <a :href="github">checkout my github</a>
-                </div>
+                    <p v-if="inStock">In stock</p>
+                    <p v-else-if>out of stock</p>
 
             </div>
             
