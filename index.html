@@ -10,6 +10,7 @@
         <div class="nav-bar"></div>
 
         <div id="app">
+
             <div class="product">
 
                 <div class="product-image">
@@ -17,19 +18,28 @@
                 </div>
 
                 <div class="product-info">
+
                     <h1>{{ product }}</h1>
                     <p v-if="inStock">In stock</p>
-                    <p v-else-if>out of stock</p>
+                    <p 
+                        v-else-if
+                        :class="{ lineThrough : !inStock }" >out of stock</p>
 
                     <ul>
                         <li v-for="detail in details">{{ detail }}</li>
                     </ul>
 
-                    <div v-for="variant in variants" :key="variant.variantId">
-                        <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+                    <div v-for="variant in variants" 
+                        :key="variant.variantId"
+                        class="color-box"
+                        :style="{ backgroundColor: variant.variantColor }"
+                        @mouseover="updateProduct(variant.variantImage)" >
                     </div>
 
-                    <button @click="addToCart">Add to Cart</button>
+                    <button 
+                        @click="addToCart"
+                        :disabled="!inStock"
+                        :class="{ disabledButton: !inStock }" >Add to Cart</button>
 
                     <div class="cart">
                         <p>Cart({{ cart }})</p>
